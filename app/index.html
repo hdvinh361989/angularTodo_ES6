@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Angular TODO with ES6</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="app.css">
+    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="../node_modules/systemjs/dist/system.js"></script>
+    <script>
+        System.config({
+            baseURL: '/app',
+            defaultJSExtensions: 'js',
+            transpiler: 'traceur',
+            map:{
+              traceur: '../node_modules/traceur/bin/traceur.js'
+            },
+            traceurOptions:{
+
+            }
+        });
+
+        System.import('app')
+    </script>
+</head>
+<body>
+
+<div ui-view=""></div>
+
+</body>
+</html>

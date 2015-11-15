@@ -1,0 +1,33 @@
+<md-content class="todo-list-wrapper">
+    <md-list>
+        <md-content layout>
+            <md-input-container flex>
+                <label class="md-title">What do you need to done?</label>
+                <input ng-model="tdlCtrl.newTodo.content"
+                       ng-keyup="tdlCtrl.inputChangeHandler($event)">
+            </md-input-container>
+        </md-content>
+        <todo-item ng-repeat="todo in tdlCtrl.todos | filter:{complete: tdlCtrl.filter} track by todo._id"
+                   todo="todo"
+                   on-change="tdlCtrl.itemChangeHandler(todo)"
+                   on-delete="tdlCtrl.itemDeleteHandler(todo)"></todo-item>
+    </md-list>
+    <div layout="row" ng-show="tdlCtrl.todos.length >0">
+        <md-divider></md-divider>
+        <!--Left-->
+        <div layout layout-align="center center"><span>{{tdlCtrl.itemLeft}} item left</span></div>
+        <!--Center-->
+        <div class="md-button-group">
+            <md-button class="no-margin" ng-click="tdlCtrl.doFilter()">All</md-button>
+            <md-button class="no-margin" ng-click="tdlCtrl.doFilter(false)">Active</md-button>
+            <md-button class="no-margin" ng-click="tdlCtrl.doFilter(true)">Complete</md-button>
+        </div>
+        <!--Right-->
+        <div>
+            <md-button ng-click="tdlCtrl.clearCompletedTodo()">Clear Completed</md-button>
+        </div>
+    </div>
+    <div>
+        {{tdlCtrl.status}}
+    </div>
+</md-content>
